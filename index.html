@@ -232,23 +232,6 @@ nav {
 .btn-label small { font-size: 9px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; opacity: .55; }
 .btn-label span  { font-size: 14px; font-weight: 700; letter-spacing: .01em; }
 
-.hero-scroll {
-  position: absolute;
-  bottom: 2rem; left: 50%;
-  transform: translateX(-50%);
-  font-size: 9px;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  color: rgba(18, 14, 10, .26);
-  display: flex; flex-direction: column; align-items: center; gap: 8px;
-  animation: rise .7s ease .9s both;
-}
-.hero-scroll::after {
-  content: '';
-  width: 1px; height: 30px;
-  background: rgba(18, 14, 10, .2);
-  animation: pulse 2s ease-in-out infinite;
-}
 
 @keyframes rise  { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes pulse { 0%, 100% { opacity: .3; } 50% { opacity: .8; } }
@@ -488,7 +471,6 @@ footer {
         <span>App Store</span>
       </div>
     </a>
-    <div class="hero-scroll">Scroll</div>
   </section>
 
   <!-- GALLERY -->
@@ -540,6 +522,10 @@ footer {
 // ══════════════════════════════════════════════════════
 //  FOTOS — coloque as imagens em /fotos e liste aqui:
 // ══════════════════════════════════════════════════════
+// Garante que a página sempre abre no topo
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+window.scrollTo(0, 0);
+
 const photos = [
   'fotos/foto1.jpg',
   'fotos/foto2.JPG',
