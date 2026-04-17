@@ -76,8 +76,6 @@ nav {
   color: rgba(18, 14, 10, .86);
 }
 
-.nav-links { display: flex; gap: 2.25rem; list-style: none; } /* desktop */
-
 .nav-links a {
   font-size: 10px;
   letter-spacing: .2em;
@@ -109,22 +107,30 @@ nav {
 .nav-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-/* Nav overlay — sempre fixed, visível só no mobile */
+/* Nav links — fixed em todos os tamanhos, fica sobre a barra */
 .nav-links {
+  position: fixed;
+  top: 0;
+  right: 1.75rem;
+  z-index: 200;
   display: flex;
+  align-items: center;
+  gap: 2.25rem;
   list-style: none;
+  padding: 1.1rem 0;
 }
 
 @media (max-width: 600px) {
   .nav-toggle { display: flex; }
 
   .nav-links {
-    position: fixed;
     inset: 0;
-    z-index: 9999; /* contexto raiz — garante que fica acima de tudo */
+    right: 0;
+    z-index: 9999;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 0;
     gap: 2.5rem;
     background: rgba(200, 185, 165, .97);
     backdrop-filter: blur(32px);
@@ -385,6 +391,7 @@ section { position: relative; padding: 4rem 1.75rem 3.5rem; }
   line-height: 1.8;
   color: rgba(18, 14, 10, .54);
   margin-bottom: 1.2rem;
+  text-align: justify;
 }
 .about-content strong { color: rgba(18, 14, 10, .82); }
 
