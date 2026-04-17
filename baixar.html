@@ -24,9 +24,11 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 html, body {
-  height: 100%;
+  width: 100%; height: 100%;
   font-family: Arial, sans-serif;
   overflow: hidden;
+  touch-action: manipulation;
+  background: #aabac6;
 }
 
 .bg {
@@ -47,16 +49,16 @@ html, body {
   background: radial-gradient(ellipse, rgba(255,248,230,.48) 0%, transparent 70%);
 }
 
+/* ── LAYOUT ───────────────────────────────────────── */
 .scene {
-  position: relative;
+  position: fixed;
+  inset: 0;
   z-index: 1;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 2rem 1.5rem;
-  gap: 1.5rem;
 }
 
 /* ── CARD ─────────────────────────────────────────── */
@@ -68,12 +70,11 @@ html, body {
   -webkit-backdrop-filter: blur(32px) saturate(1.5) brightness(1.05);
   border: .5px solid rgba(255, 255, 255, .52);
   border-radius: 36px;
-  padding: 2.5rem 2.25rem;
+  padding: 2.5rem 2.25rem 2.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 0;
   opacity: 0;
   transform: translateY(18px);
   animation: rise .85s cubic-bezier(.22, 1, .36, 1) .15s forwards;
@@ -94,7 +95,7 @@ html, body {
 .app-title {
   font-family: 'Druk Text Wide Trial', 'Arial Black', Arial, sans-serif;
   font-weight: 900;
-  font-size: 2rem;
+  font-size: 2.2rem;
   letter-spacing: .05em;
   text-transform: uppercase;
   color: rgba(18, 14, 10, .86);
@@ -103,9 +104,9 @@ html, body {
 }
 
 .app-sub {
-  font-size: 12px;
-  color: rgba(18, 14, 10, .38);
-  letter-spacing: .18em;
+  font-size: 10px;
+  color: rgba(18, 14, 10, .35);
+  letter-spacing: .22em;
   text-transform: uppercase;
   margin-bottom: 2rem;
 }
@@ -135,30 +136,35 @@ html, body {
 
 .note {
   font-size: 10px;
-  color: rgba(18, 14, 10, .28);
+  color: rgba(18, 14, 10, .26);
   letter-spacing: .06em;
 }
 
-/* ── BACK LINK (fora do card) ─────────────────────── */
+/* ── BACK LINK ────────────────────────────────────── */
 .back-link {
+  position: fixed;
+  bottom: max(1.75rem, env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 10px;
   letter-spacing: .2em;
   text-transform: uppercase;
   text-decoration: none;
-  color: rgba(18, 14, 10, .32);
+  color: rgba(18, 14, 10, .3);
+  white-space: nowrap;
   opacity: 0;
-  animation: rise .6s ease .6s forwards;
+  animation: rise .6s ease .7s forwards;
   transition: color .2s;
 }
-.back-link:hover { color: rgba(18, 14, 10, .62); }
+.back-link:hover { color: rgba(18, 14, 10, .6); }
 
-@keyframes rise { to { opacity: 1; transform: translateY(0); } }
+@keyframes rise { to { opacity: 1; transform: translateX(-50%) translateY(0); } }
 
 @media (min-height: 700px) {
   .app-icon { width: 88px; height: 88px; border-radius: 22px; }
   .app-icon img { width: 54px; height: 54px; }
-  .app-title { font-size: 2.2rem; }
-  .card { padding: 2.75rem 2.5rem; }
+  .app-title { font-size: 2.4rem; }
+  .card { padding: 2.75rem 2.5rem 2.5rem; max-width: 320px; }
 }
 
 </style>
@@ -186,9 +192,9 @@ html, body {
 
     <p class="note">Grátis · Disponível para iPhone</p>
   </div>
-
-  <a href="/" class="back-link">← Voltar ao site</a>
 </div>
+
+<a href="/" class="back-link">← Voltar ao site</a>
 
 </body>
 </html>
