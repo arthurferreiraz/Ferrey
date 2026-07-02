@@ -455,7 +455,7 @@ footer {
       await fetch(form.action, {
         method: 'POST',
         mode: 'no-cors',
-        body: new FormData(form)
+        body: new URLSearchParams(new FormData(form))
       });
       form.style.display = 'none';
       success.style.display = 'block';
