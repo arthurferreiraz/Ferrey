@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Acesso Antecipado — Ferrey para Android</title>
+<meta name="description" content="O Ferrey está chegando ao Android. Garanta acesso antecipado como testador antes do lançamento oficial.">
+
+<!-- Open Graph (link bonito ao compartilhar no TikTok / Instagram) -->
+<meta property="og:title" content="Ferrey chega ao Android — quer acesso antecipado?">
+<meta property="og:description" content="Estamos selecionando testadores. Garanta seu lugar antes do lançamento oficial.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.ferrey.com.br/android/">
+<meta property="og:image" content="https://www.ferrey.com.br/logo.png">
+
+<style>
+
+@font-face {
+  font-family: 'Druk Text Wide Trial';
+  src: local('Druk Text Wide Trial Bold'), local('DrukTextWide-Bold');
+  font-weight: 700;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  overscroll-behavior: none;
+  background: #aabac6;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: rgba(18, 14, 10, .86);
+  overflow-x: hidden;
+  overscroll-behavior: none;
+  touch-action: manipulation;
+  min-height: 100vh;
+}
+
+/* ── BACKGROUND ───────────────────────────────────── */
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 28% 18%, rgba(215,200,175,.65) 0%, transparent 50%),
+    radial-gradient(ellipse at 72% 78%, rgba(160,182,200,.58) 0%, transparent 48%),
+    radial-gradient(ellipse at 55% 45%, rgba(192,180,165,.4)  0%, transparent 55%),
+    linear-gradient(155deg, #d2c3ae 0%, #bac9d5 42%, #c9c1b2 68%, #aabac6 100%);
+}
+.bg::before {
+  content: '';
+  position: absolute;
+  top: -8%; left: 8%;
+  width: 58%; height: 48%;
+  background: radial-gradient(ellipse, rgba(255,248,230,.48) 0%, transparent 70%);
+}
+
+.page { position: relative; z-index: 1; min-height: 100vh; display: flex; flex-direction: column; }
+
+/* ── NAV ──────────────────────────────────────────── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.75rem;
+  background: rgba(210, 195, 174, .26);
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  border-bottom: .5px solid rgba(255, 255, 255, .4);
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.nav-logo img {
+  height: 28px;
+  width: auto;
+  display: block;
+}
+.nav-back {
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(18, 14, 10, .44);
+  transition: color .2s;
+}
+.nav-back:hover { color: rgba(18, 14, 10, .86); }
+
+/* ── MAIN LAYOUT ──────────────────────────────────── */
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5.5rem 1.5rem 2rem;
+}
+
+.layout {
+  width: 100%;
+  max-width: 980px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+  align-items: center;
+  animation: rise .7s ease .05s both;
+}
+
+@keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ── LEFT: PITCH ──────────────────────────────────── */
+.pitch { text-align: center; }
+
+.pitch-icon {
+  width: 68px; height: 68px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, .78);
+  border: .5px solid rgba(255, 255, 255, .6);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.3rem;
+  box-shadow: 0 4px 28px rgba(0,0,0,.07);
+}
+.pitch-icon img { width: 42px; height: 42px; object-fit: contain; }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 9.5px;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: rgba(18, 14, 10, .44);
+  margin-bottom: .9rem;
+}
+.eyebrow .dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: rgba(60, 140, 95, .9);
+  box-shadow: 0 0 0 0 rgba(60,140,95,.5);
+  animation: pulse 2.2s infinite;
+}
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(60,140,95,.45); }
+  70%  { box-shadow: 0 0 0 7px rgba(60,140,95,0); }
+  100% { box-shadow: 0 0 0 0 rgba(60,140,95,0); }
+}
+
+.pitch-title {
+  font-family: 'Druk Text Wide Trial', 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.1rem, 9vw, 3.4rem);
+  text-transform: uppercase;
+  letter-spacing: -.01em;
+  line-height: .92;
+  color: rgba(18, 14, 10, .88);
+  margin-bottom: .9rem;
+}
+
+.pitch-desc {
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: rgba(18, 14, 10, .52);
+  max-width: 340px;
+  margin: 0 auto 1.6rem;
+  text-align: justify;
+}
+
+/* Expectativas — compactas */
+.expect { display: grid; gap: 1rem; max-width: 360px; margin: 0 auto; text-align: left; }
+.expect .row { display: flex; gap: 11px; align-items: flex-start; }
+.expect .ico2 {
+  flex-shrink: 0;
+  width: 30px; height: 30px;
+  border-radius: 9px;
+  background: rgba(255,255,255,.42);
+  border: .5px solid rgba(255,255,255,.6);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(18,14,10,.7);
+}
+.expect .row h3 {
+  font-size: 11px; letter-spacing: .04em; text-transform: uppercase;
+  color: rgba(18, 14, 10, .8); margin-bottom: .15rem;
+}
+.expect .row p { font-size: 12px; line-height: 1.5; color: rgba(18, 14, 10, .5); }
+
+/* ── RIGHT: FORM CARD ─────────────────────────────── */
+.card {
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  background: rgba(255, 253, 250, .28);
+  backdrop-filter: blur(32px) saturate(1.5) brightness(1.05);
+  -webkit-backdrop-filter: blur(32px) saturate(1.5) brightness(1.05);
+  border: .5px solid rgba(255, 255, 255, .55);
+  border-radius: 26px;
+  padding: 2.2rem 2rem;
+  box-shadow: 0 12px 48px rgba(30,25,18,.1);
+}
+
+.card-title {
+  font-family: 'Druk Text Wide Trial', 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  color: rgba(18, 14, 10, .86);
+  margin-bottom: .3rem;
+  text-align: center;
+  white-space: nowrap;
+}
+.card-sub { font-size: 11.5px; color: rgba(18, 14, 10, .42); text-align: center; margin-bottom: 1.7rem; }
+
+.field { margin-bottom: 1.2rem; }
+label {
+  display: block;
+  font-size: 9.5px; letter-spacing: .16em; text-transform: uppercase;
+  color: rgba(18, 14, 10, .5); margin-bottom: .55rem;
+}
+.hint { font-size: 11px; color: rgba(18, 14, 10, .4); margin-top: .45rem; line-height: 1.45; }
+
+input[type="text"], input[type="email"] {
+  width: 100%;
+  background: rgba(255, 255, 255, .42);
+  border: .5px solid rgba(255, 255, 255, .7);
+  border-radius: 12px;
+  color: rgba(18, 14, 10, .9);
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  padding: .82rem .95rem;
+  transition: border-color .15s, background .15s, box-shadow .15s;
+}
+input::placeholder { color: rgba(18, 14, 10, .3); }
+input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, .6);
+  border-color: rgba(18, 14, 10, .5);
+  box-shadow: 0 0 0 3px rgba(18, 14, 10, .06);
+}
+
+/* Aviso do email do Google Play */
+.warn {
+  display: flex;
+  gap: 10px;
+  background: rgba(255, 250, 235, .5);
+  border: .5px solid rgba(170, 140, 80, .38);
+  border-radius: 13px;
+  padding: .85rem .95rem;
+  margin: .5rem 0 1.4rem;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: rgba(70, 55, 25, .82);
+}
+.warn svg { flex-shrink: 0; margin-top: 1px; }
+.warn b { color: rgba(50, 38, 15, .95); }
+
+.check {
+  display: flex; gap: 9px; align-items: flex-start;
+  margin-bottom: 1.5rem;
+  font-size: 11.5px; line-height: 1.5;
+  color: rgba(18, 14, 10, .55); cursor: pointer;
+}
+.check input {
+  width: 16px; height: 16px; margin-top: 1px;
+  accent-color: rgba(18, 14, 10, .82); flex-shrink: 0; cursor: pointer;
+}
+.check b { color: rgba(18, 14, 10, .78); }
+
+button {
+  width: 100%;
+  background: rgba(18, 14, 10, .88);
+  color: rgba(255, 252, 248, .95);
+  font-family: 'Druk Text Wide Trial', 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 12px; letter-spacing: .06em; text-transform: uppercase;
+  border: .5px solid rgba(255,255,255,.1);
+  border-radius: 100px;
+  padding: .95rem;
+  cursor: pointer;
+  transition: transform .15s, background .2s;
+}
+button:hover { background: rgba(18,14,10,.96); transform: scale(1.01); }
+button:active { transform: scale(.98); }
+button:disabled { opacity: .55; cursor: not-allowed; }
+
+/* Confirmação */
+.success { display: none; text-align: center; padding: 1rem 0; }
+.success .ico {
+  width: 54px; height: 54px; margin: 0 auto 1rem;
+  border-radius: 50%; background: rgba(60, 140, 95, .14);
+  display: flex; align-items: center; justify-content: center;
+}
+.success h2 {
+  font-family: 'Druk Text Wide Trial', 'Arial Black', Arial, sans-serif;
+  font-weight: 900; font-size: 1.25rem; text-transform: uppercase;
+  color: rgba(18, 14, 10, .86); margin-bottom: .6rem;
+}
+.success p { font-size: 13px; line-height: 1.65; color: rgba(18, 14, 10, .52); max-width: 300px; margin: 0 auto; text-align: justify; }
+
+/* ── FOOTER ───────────────────────────────────────── */
+footer {
+  padding: 1.1rem 1.75rem;
+  border-top: .5px solid rgba(255,255,255,.35);
+  background: rgba(210,195,174,.14);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: space-between;
+  position: relative; z-index: 1;
+}
+.footer-logo {
+  font-family: 'Druk Text Wide Trial', 'Arial Black', Arial, sans-serif;
+  font-weight: 900; font-size: .8rem; letter-spacing: .06em;
+  text-transform: uppercase; color: rgba(18, 14, 10, .36);
+}
+.footer-right { display: flex; align-items: center; gap: 1.5rem; }
+.footer-copy { font-size: 10px; color: rgba(18,14,10,.28); letter-spacing: .05em; }
+.footer-link {
+  font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
+  text-decoration: none; color: rgba(18,14,10,.32); transition: color .2s;
+}
+.footer-link:hover { color: rgba(18,14,10,.6); }
+
+/* ── DESKTOP: DUAS COLUNAS ────────────────────────── */
+@media (min-width: 860px) {
+  .layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+  .pitch { text-align: left; }
+  .pitch-icon { margin-left: 0; margin-right: auto; }
+  .pitch-desc { margin-left: 0; }
+  .expect { margin-left: 0; }
+  .card { margin-right: 0; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+
+<div class="page">
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo"><img src="../logo.png" alt="Ferrey"></a>
+    <a href="/" class="nav-back">← Voltar</a>
+  </nav>
+
+  <!-- MAIN -->
+  <main>
+    <div class="layout">
+
+      <!-- ESQUERDA: apresentação -->
+      <div class="pitch">
+        <div class="pitch-icon"><img src="../logo.png" alt="Ferrey"></div>
+        <p class="eyebrow"><span class="dot"></span>Em breve para Android</p>
+        <h1 class="pitch-title">Acesso<br>Antecipado</h1>
+        <p class="pitch-desc">O Ferrey está chegando ao Android. Estamos selecionando um grupo para testar o app antes do lançamento oficial. Seja uma das primeiras pessoas.</p>
+
+        <div class="expect">
+          <div class="row">
+            <div class="ico2"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6.5L5.5 17a2 2 0 0 0 1.7 3h9.6a2 2 0 0 0 1.7-3L14 9.5V3"/></svg></div>
+            <div><h3>Versão de teste</h3><p>Pode ter pequenos bugs, já contamos com isso. Faz parte.</p></div>
+          </div>
+          <div class="row">
+            <div class="ico2"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5z"/></svg></div>
+            <div><h3>Seu feedback vale ouro</h3><p>Adoraríamos ouvir o que você achou pra deixar o app melhor.</p></div>
+          </div>
+          <div class="row">
+            <div class="ico2"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5 3 21l4.5-1.5M8.5 13.5C6 16 3 21 3 21s5-3 7.5-5.5c2-2 6-8 8-13-5 2-11 6-13 8z"/></svg></div>
+            <div><h3>Rumo à versão oficial</h3><p>Fazendo o possível pra liberar a oficial o mais rápido possível.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DIREITA: formulário -->
+      <div class="card">
+        <!-- Recebedor: Google Apps Script (planilha "Ferrey — Cadastros Android") -->
+        <form id="form" action="https://script.google.com/macros/s/AKfycbwvS4GmXU4Xx65Lw3fIWY3m9s-H2xOLefYj-PiM8gdn9gZeMavAvi3tQgksst4dqRnz/exec" method="POST">
+          <h2 class="card-title">Entrar na lista</h2>
+          <p class="card-sub">Vagas limitadas · leva menos de um minuto</p>
+
+          <div class="field">
+            <label for="instagram">@ do Instagram</label>
+            <input type="text" id="instagram" name="instagram" placeholder="@seuusuario" required>
+          </div>
+
+          <div class="field">
+            <label for="modelo">Modelo do celular</label>
+            <input type="text" id="modelo" name="modelo_do_celular" placeholder="Ex.: Galaxy S23, Moto Edge 40..." required>
+            <p class="hint">Ajuda a saber em quais aparelhos o app está rodando.</p>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="seuemail@gmail.com" required>
+          </div>
+
+          <div class="warn">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="rgba(120,95,35,.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+              <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            <div><b>Importante:</b> use o <b>mesmo email da sua conta do Google Play</b>. O acesso ao teste é liberado por email. Se for outro, não dá pra baixar.</div>
+          </div>
+
+          <label class="check">
+            <input type="checkbox" name="aceita_feedback" required>
+            <span>Topo dar feedback e entendo que é uma <b>versão de teste</b> que pode ter pequenos bugs.</span>
+          </label>
+
+          <button type="submit" id="btn">Quero meu acesso antecipado</button>
+        </form>
+
+        <div class="success" id="success">
+          <div class="ico">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(60,140,95,.95)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h2>Você está na lista!</h2>
+          <p>Recebemos seus dados. Entramos em contato pelo email informado assim que seu acesso for liberado. Fique de olho na caixa de entrada e no spam.</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <span class="footer-logo">Ferrey</span>
+    <div class="footer-right">
+      <a href="/" class="footer-link">Início</a>
+      <span class="footer-copy">© 2026</span>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  window.scrollTo(0, 0);
+
+  const form = document.getElementById('form');
+  const btn = document.getElementById('btn');
+  const success = document.getElementById('success');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+    try {
+      await fetch(form.action, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: new FormData(form)
+      });
+      form.style.display = 'none';
+      success.style.display = 'block';
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = 'Quero meu acesso antecipado';
+      alert('Ops! Algo deu errado. Tente novamente em instantes.');
+    }
+  });
+</script>
+
+</body>
+</html>
