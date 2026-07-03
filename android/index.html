@@ -13,6 +13,11 @@
 <meta property="og:url" content="https://www.ferrey.com.br/android/">
 <meta property="og:image" content="https://www.ferrey.com.br/logo.png">
 
+<!-- Fonte de destaque (lookalike da Druk Text Wide) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62.5..125,100..900&display=swap" rel="stylesheet">
+
 <style>
 
 @font-face {
@@ -140,9 +145,11 @@ main {
 }
 
 .pitch-title {
-  font-family: 'Druk Text Wide Trial', 'Arial Black', Arial, sans-serif;
+  font-family: 'Archivo', 'Arial Black', Arial, sans-serif;
   font-weight: 900;
-  font-size: clamp(2.1rem, 9vw, 3.2rem);
+  font-stretch: 125%;
+  font-size: clamp(1.4rem, 7vw, 2.9rem);
+  white-space: nowrap;
   text-transform: uppercase;
   letter-spacing: -.01em;
   line-height: .92;
@@ -169,8 +176,9 @@ main {
   box-shadow: 0 6px 24px rgba(30,25,18,.08);
 }
 .cd-num {
-  font-family: 'Druk Text Wide Trial', 'Arial Black', Arial, sans-serif;
+  font-family: 'Archivo', 'Arial Black', Arial, sans-serif;
   font-weight: 900;
+  font-stretch: 125%;
   font-size: 1.75rem;
   line-height: 1;
   color: rgba(18, 14, 10, .88);
@@ -224,8 +232,9 @@ main {
 }
 
 .card-title {
-  font-family: 'Druk Text Wide Trial', 'Arial Black', Arial, sans-serif;
+  font-family: 'Archivo', 'Arial Black', Arial, sans-serif;
   font-weight: 900;
+  font-stretch: 125%;
   font-size: 1.3rem;
   text-transform: uppercase;
   color: rgba(18, 14, 10, .86);
@@ -294,8 +303,9 @@ button {
   width: 100%;
   background: rgba(18, 14, 10, .88);
   color: rgba(255, 252, 248, .95);
-  font-family: 'Druk Text Wide Trial', 'Arial Black', Arial, sans-serif;
+  font-family: 'Archivo', 'Arial Black', Arial, sans-serif;
   font-weight: 900;
+  font-stretch: 125%;
   font-size: 12px; letter-spacing: .06em; text-transform: uppercase;
   border: .5px solid rgba(255,255,255,.1);
   border-radius: 100px;
@@ -315,8 +325,9 @@ button:disabled { opacity: .55; cursor: not-allowed; }
   display: flex; align-items: center; justify-content: center;
 }
 .success h2 {
-  font-family: 'Druk Text Wide Trial', 'Arial Black', Arial, sans-serif;
-  font-weight: 900; font-size: 1.25rem; text-transform: uppercase;
+  font-family: 'Archivo', 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  font-stretch: 125%; font-size: 1.25rem; text-transform: uppercase;
   color: rgba(18, 14, 10, .86); margin-bottom: .6rem;
 }
 .success p { font-size: 13px; line-height: 1.65; color: rgba(18, 14, 10, .52); max-width: 320px; margin: 0 auto; text-align: justify; }
@@ -332,8 +343,9 @@ footer {
   position: relative; z-index: 1;
 }
 .footer-logo {
-  font-family: 'Druk Text Wide Trial', 'Arial Black', Arial, sans-serif;
-  font-weight: 900; font-size: .8rem; letter-spacing: .06em;
+  font-family: 'Archivo', 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  font-stretch: 125%; font-size: .8rem; letter-spacing: .06em;
   text-transform: uppercase; color: rgba(18, 14, 10, .36);
 }
 .footer-right { display: flex; align-items: center; gap: 1.5rem; }
@@ -379,7 +391,7 @@ footer {
       <div class="pitch">
         <div class="pitch-icon"><img src="../logo.png" alt="Ferrey"></div>
         <p class="eyebrow"><span class="dot"></span>Lançamento oficial no Android</p>
-        <h1 class="pitch-title">Falta<br>Pouco</h1>
+        <h1 class="pitch-title">Falta Pouco</h1>
 
         <div class="countdown" id="countdown">
           <div class="cd-box"><div class="cd-num" id="cd-days">00</div><div class="cd-label">Dias</div></div>
