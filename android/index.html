@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Acesso Antecipado — Ferrey para Android</title>
-<meta name="description" content="O Ferrey está chegando ao Android. Garanta acesso antecipado como testador antes do lançamento oficial.">
+<title>Ferrey para Android — Lançamento oficial</title>
+<meta name="description" content="O Ferrey está chegando ao Android. Cadastre-se e saia na frente: acesso antes de todo mundo e um email assim que o app for liberado.">
 
 <!-- Open Graph (link bonito ao compartilhar no TikTok / Instagram) -->
-<meta property="og:title" content="Ferrey chega ao Android — quer acesso antecipado?">
-<meta property="og:description" content="Estamos selecionando testadores. Garanta seu lugar antes do lançamento oficial.">
+<meta property="og:title" content="Ferrey chega ao Android. Saia na frente.">
+<meta property="og:description" content="Cadastre-se e receba o acesso antes de todo mundo, com um email assim que o app for liberado.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.ferrey.com.br/android/">
 <meta property="og:image" content="https://www.ferrey.com.br/logo.png">
@@ -74,23 +74,11 @@ nav {
   -webkit-backdrop-filter: blur(24px) saturate(1.4);
   border-bottom: .5px solid rgba(255, 255, 255, .4);
 }
-.nav-logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-.nav-logo img {
-  height: 28px;
-  width: auto;
-  display: block;
-}
+.nav-logo { display: flex; align-items: center; text-decoration: none; }
+.nav-logo img { height: 28px; width: auto; display: block; }
 .nav-back {
-  font-size: 10px;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: rgba(18, 14, 10, .44);
-  transition: color .2s;
+  font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+  text-decoration: none; color: rgba(18, 14, 10, .44); transition: color .2s;
 }
 .nav-back:hover { color: rgba(18, 14, 10, .86); }
 
@@ -100,12 +88,12 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5.5rem 1.5rem 2rem;
+  padding: 5.5rem 1.5rem 2.5rem;
 }
 
 .layout {
   width: 100%;
-  max-width: 980px;
+  max-width: 1000px;
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.75rem;
@@ -119,15 +107,15 @@ main {
 .pitch { text-align: center; }
 
 .pitch-icon {
-  width: 68px; height: 68px;
+  width: 66px; height: 66px;
   border-radius: 18px;
   background: rgba(255, 255, 255, .78);
   border: .5px solid rgba(255, 255, 255, .6);
   display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 1.3rem;
+  margin: 0 auto 1.2rem;
   box-shadow: 0 4px 28px rgba(0,0,0,.07);
 }
-.pitch-icon img { width: 42px; height: 42px; object-fit: contain; }
+.pitch-icon img { width: 40px; height: 40px; object-fit: contain; }
 
 .eyebrow {
   display: inline-flex;
@@ -154,40 +142,72 @@ main {
 .pitch-title {
   font-family: 'Druk Text Wide Trial', 'Arial Black', Arial, sans-serif;
   font-weight: 900;
-  font-size: clamp(2.1rem, 9vw, 3.4rem);
+  font-size: clamp(2.1rem, 9vw, 3.2rem);
   text-transform: uppercase;
   letter-spacing: -.01em;
   line-height: .92;
   color: rgba(18, 14, 10, .88);
-  margin-bottom: .9rem;
+  margin-bottom: 1.2rem;
 }
 
-.pitch-desc {
-  font-size: 13.5px;
-  line-height: 1.7;
-  color: rgba(18, 14, 10, .52);
-  max-width: 340px;
-  margin: 0 auto 1.6rem;
-  text-align: justify;
+/* ── COUNTDOWN ────────────────────────────────────── */
+.countdown {
+  display: flex;
+  gap: .55rem;
+  justify-content: center;
+  margin-bottom: .7rem;
 }
+.cd-box {
+  background: rgba(255, 253, 250, .3);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border: .5px solid rgba(255, 255, 255, .55);
+  border-radius: 15px;
+  padding: .7rem .3rem .55rem;
+  min-width: 66px;
+  text-align: center;
+  box-shadow: 0 6px 24px rgba(30,25,18,.08);
+}
+.cd-num {
+  font-family: 'Druk Text Wide Trial', 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 1.75rem;
+  line-height: 1;
+  color: rgba(18, 14, 10, .88);
+  font-variant-numeric: tabular-nums;
+}
+.cd-label {
+  font-size: 8px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(18, 14, 10, .42);
+  margin-top: .4rem;
+}
+.cd-caption {
+  font-size: 9.5px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(18, 14, 10, .4);
+  margin-bottom: 1.4rem;
+}
+.cd-caption b { color: rgba(18, 14, 10, .62); }
 
-/* Expectativas — compactas */
-.expect { display: grid; gap: 1rem; max-width: 360px; margin: 0 auto; text-align: left; }
-.expect .row { display: flex; gap: 11px; align-items: flex-start; }
-.expect .ico2 {
-  flex-shrink: 0;
-  width: 30px; height: 30px;
-  border-radius: 9px;
-  background: rgba(255,255,255,.42);
-  border: .5px solid rgba(255,255,255,.6);
-  display: flex; align-items: center; justify-content: center;
-  color: rgba(18,14,10,.7);
+/* Destaque: deixa claro que a lista recebe ANTES do relógio zerar */
+.headstart {
+  background: rgba(60, 140, 95, .1);
+  border: .5px solid rgba(60, 140, 95, .3);
+  border-radius: 16px;
+  padding: .9rem 1.05rem;
+  max-width: 380px;
+  margin: 0 auto;
+  text-align: left;
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
 }
-.expect .row h3 {
-  font-size: 11px; letter-spacing: .04em; text-transform: uppercase;
-  color: rgba(18, 14, 10, .8); margin-bottom: .15rem;
-}
-.expect .row p { font-size: 12px; line-height: 1.5; color: rgba(18, 14, 10, .5); }
+.headstart svg { flex-shrink: 0; margin-top: 1px; }
+.headstart p { font-size: 12.5px; line-height: 1.55; color: rgba(20, 45, 32, .8); }
+.headstart b { color: rgba(15, 60, 40, .95); }
 
 /* ── RIGHT: FORM CARD ─────────────────────────────── */
 .card {
@@ -299,7 +319,7 @@ button:disabled { opacity: .55; cursor: not-allowed; }
   font-weight: 900; font-size: 1.25rem; text-transform: uppercase;
   color: rgba(18, 14, 10, .86); margin-bottom: .6rem;
 }
-.success p { font-size: 13px; line-height: 1.65; color: rgba(18, 14, 10, .52); max-width: 300px; margin: 0 auto; text-align: justify; }
+.success p { font-size: 13px; line-height: 1.65; color: rgba(18, 14, 10, .52); max-width: 320px; margin: 0 auto; text-align: justify; }
 
 /* ── FOOTER ───────────────────────────────────────── */
 footer {
@@ -325,15 +345,15 @@ footer {
 .footer-link:hover { color: rgba(18,14,10,.6); }
 
 /* ── DESKTOP: DUAS COLUNAS ────────────────────────── */
-@media (min-width: 860px) {
+@media (min-width: 880px) {
   .layout {
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
   }
   .pitch { text-align: left; }
   .pitch-icon { margin-left: 0; margin-right: auto; }
-  .pitch-desc { margin-left: 0; }
-  .expect { margin-left: 0; }
+  .countdown { justify-content: flex-start; }
+  .headstart { margin-left: 0; }
   .card { margin-right: 0; }
 }
 
@@ -355,26 +375,25 @@ footer {
   <main>
     <div class="layout">
 
-      <!-- ESQUERDA: apresentação -->
+      <!-- ESQUERDA: contagem regressiva -->
       <div class="pitch">
         <div class="pitch-icon"><img src="../logo.png" alt="Ferrey"></div>
-        <p class="eyebrow"><span class="dot"></span>Em breve para Android</p>
-        <h1 class="pitch-title">Acesso<br>Antecipado</h1>
-        <p class="pitch-desc">O Ferrey está chegando ao Android. Estamos selecionando um grupo para testar o app antes do lançamento oficial. Seja uma das primeiras pessoas.</p>
+        <p class="eyebrow"><span class="dot"></span>Lançamento oficial no Android</p>
+        <h1 class="pitch-title">Falta<br>Pouco</h1>
 
-        <div class="expect">
-          <div class="row">
-            <div class="ico2"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6.5L5.5 17a2 2 0 0 0 1.7 3h9.6a2 2 0 0 0 1.7-3L14 9.5V3"/></svg></div>
-            <div><h3>Versão de teste</h3><p>Pode ter pequenos bugs, já contamos com isso. Faz parte.</p></div>
-          </div>
-          <div class="row">
-            <div class="ico2"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5z"/></svg></div>
-            <div><h3>Seu feedback vale ouro</h3><p>Adoraríamos ouvir o que você achou pra deixar o app melhor.</p></div>
-          </div>
-          <div class="row">
-            <div class="ico2"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5 3 21l4.5-1.5M8.5 13.5C6 16 3 21 3 21s5-3 7.5-5.5c2-2 6-8 8-13-5 2-11 6-13 8z"/></svg></div>
-            <div><h3>Rumo à versão oficial</h3><p>Fazendo o possível pra liberar a oficial o mais rápido possível.</p></div>
-          </div>
+        <div class="countdown" id="countdown">
+          <div class="cd-box"><div class="cd-num" id="cd-days">00</div><div class="cd-label">Dias</div></div>
+          <div class="cd-box"><div class="cd-num" id="cd-hours">00</div><div class="cd-label">Horas</div></div>
+          <div class="cd-box"><div class="cd-num" id="cd-mins">00</div><div class="cd-label">Min</div></div>
+          <div class="cd-box"><div class="cd-num" id="cd-secs">00</div><div class="cd-label">Seg</div></div>
+        </div>
+        <p class="cd-caption" id="cd-caption">para o <b>lançamento oficial</b></p>
+
+        <div class="headstart">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(45,120,80,.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/>
+          </svg>
+          <p>O contador marca o lançamento oficial, <b>para todo mundo</b>. Mas quem se cadastra aqui não espera até lá: <b>horas antes</b> do relógio zerar, você recebe no seu email um <b>link especial</b> que já libera o seu acesso ao Ferrey.</p>
         </div>
       </div>
 
@@ -383,7 +402,7 @@ footer {
         <!-- Recebedor: Google Apps Script (planilha "Ferrey — Cadastros Android") -->
         <form id="form" action="https://script.google.com/macros/s/AKfycbwvS4GmXU4Xx65Lw3fIWY3m9s-H2xOLefYj-PiMBgdn9gZeMavAvi3tQgksst4dqRnz/exec" method="POST">
           <h2 class="card-title">Entrar na lista</h2>
-          <p class="card-sub">Vagas limitadas · leva menos de um minuto</p>
+          <p class="card-sub">Saia na frente do lançamento oficial</p>
 
           <div class="field">
             <label for="instagram">@ do Instagram</label>
@@ -406,15 +425,15 @@ footer {
               <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
               <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
             </svg>
-            <div><b>Importante:</b> use o <b>mesmo email da sua conta do Google Play</b>. O acesso ao teste é liberado por email. Se for outro, não dá pra baixar.</div>
+            <div><b>Importante:</b> use o <b>mesmo email da sua conta do Google Play</b>. O acesso é liberado por email. Se for outro, não dá pra baixar.</div>
           </div>
 
           <label class="check">
-            <input type="checkbox" name="aceita_feedback" required>
-            <span>Topo dar feedback e entendo que é uma <b>versão de teste</b> que pode ter pequenos bugs.</span>
+            <input type="checkbox" name="aceita_contato" required>
+            <span>Quero receber por email o <b>link de acesso antecipado</b> ao Ferrey.</span>
           </label>
 
-          <button type="submit" id="btn">Quero meu acesso antecipado</button>
+          <button type="submit" id="btn">Garantir meu acesso</button>
         </form>
 
         <div class="success" id="success">
@@ -422,7 +441,7 @@ footer {
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(60,140,95,.95)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
           <h2>Você está na lista!</h2>
-          <p>Recebemos seus dados. Entramos em contato pelo email informado assim que seu acesso for liberado. Fique de olho na caixa de entrada e no spam.</p>
+          <p>Prontinho. Horas antes do lançamento oficial, você recebe no seu email o link que libera o seu acesso antecipado ao Ferrey. Fique de olho na caixa de entrada e no spam.</p>
         </div>
       </div>
 
@@ -442,7 +461,50 @@ footer {
 <script>
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   window.scrollTo(0, 0);
- 
+
+  /* ============================================================
+     DATA E HORA DO LANÇAMENTO OFICIAL
+     Formato: 'AAAA-MM-DDTHH:MM:SS-03:00'  (-03:00 = horário de Brasília)
+     Ex.: 20 de agosto de 2026, 20h  ->  '2026-08-20T20:00:00-03:00'
+     ============================================================ */
+  const LANCAMENTO = new Date('2026-07-09T09:09:00-03:00');
+
+  const elDays = document.getElementById('cd-days');
+  const elHours = document.getElementById('cd-hours');
+  const elMins = document.getElementById('cd-mins');
+  const elSecs = document.getElementById('cd-secs');
+  const elCaption = document.getElementById('cd-caption');
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function tick() {
+    const agora = new Date();
+    let diff = Math.floor((LANCAMENTO - agora) / 1000);
+
+    if (diff <= 0) {
+      elDays.textContent = '00';
+      elHours.textContent = '00';
+      elMins.textContent = '00';
+      elSecs.textContent = '00';
+      elCaption.innerHTML = 'O <b>Ferrey</b> já está no ar';
+      return;
+    }
+
+    const days = Math.floor(diff / 86400); diff -= days * 86400;
+    const hours = Math.floor(diff / 3600); diff -= hours * 3600;
+    const mins = Math.floor(diff / 60); diff -= mins * 60;
+    const secs = diff;
+
+    elDays.textContent = pad(days);
+    elHours.textContent = pad(hours);
+    elMins.textContent = pad(mins);
+    elSecs.textContent = pad(secs);
+  }
+
+  tick();
+  setInterval(tick, 1000);
+
+  /* ── ENVIO DO FORMULÁRIO ────────────────────────── */
   const form = document.getElementById('form');
   const btn = document.getElementById('btn');
   const success = document.getElementById('success');
@@ -461,7 +523,7 @@ footer {
       success.style.display = 'block';
     } catch (err) {
       btn.disabled = false;
-      btn.textContent = 'Quero meu acesso antecipado';
+      btn.textContent = 'Garantir meu acesso';
       alert('Ops! Algo deu errado. Tente novamente em instantes.');
     }
   });
