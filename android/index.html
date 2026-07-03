@@ -227,7 +227,7 @@ main {
   -webkit-backdrop-filter: blur(32px) saturate(1.5) brightness(1.05);
   border: .5px solid rgba(255, 255, 255, .55);
   border-radius: 26px;
-  padding: 2.2rem 2rem;
+  padding: 2rem 1.9rem;
   box-shadow: 0 12px 48px rgba(30,25,18,.1);
 }
 
@@ -238,11 +238,10 @@ main {
   font-size: 1.3rem;
   text-transform: uppercase;
   color: rgba(18, 14, 10, .86);
-  margin-bottom: .3rem;
+  margin-bottom: .45rem;
   text-align: center;
-  white-space: nowrap;
 }
-.card-sub { font-size: 11.5px; color: rgba(18, 14, 10, .42); text-align: center; margin-bottom: 1.7rem; }
+.card-sub { font-size: 12px; color: rgba(18, 14, 10, .42); text-align: center; line-height: 1.5; margin-bottom: 1.1rem; }
 
 .field { margin-bottom: 1.2rem; }
 label {
@@ -316,6 +315,53 @@ button {
 button:hover { background: rgba(18,14,10,.96); transform: scale(1.01); }
 button:active { transform: scale(.98); }
 button:disabled { opacity: .55; cursor: not-allowed; }
+
+/* Botão Google Play (primário) */
+.playbtn {
+  display: flex; align-items: center; justify-content: center; gap: 11px;
+  width: 100%;
+  background: rgba(18, 14, 10, .9);
+  color: rgba(255, 252, 248, .96);
+  text-decoration: none;
+  border-radius: 100px;
+  padding: 1.05rem 1.2rem;
+  border: .5px solid rgba(255,255,255,.1);
+  transition: transform .15s, background .2s;
+  margin-bottom: .8rem;
+}
+.playbtn:hover { background: rgba(18,14,10,.98); transform: scale(1.01); }
+.playbtn:active { transform: scale(.98); }
+.playbtn .pl-label { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.2; }
+.playbtn .pl-label small { font-size: 9px; letter-spacing: .12em; text-transform: uppercase; opacity: .6; }
+.playbtn .pl-label > span {
+  font-family: 'Archivo', 'Arial Black', Arial, sans-serif;
+  font-weight: 900; font-stretch: 125%;
+  font-size: 12.5px; letter-spacing: .04em; text-transform: uppercase;
+}
+.play-note { font-size: 11px; color: rgba(18,14,10,.42); text-align: center; margin-bottom: 0; }
+
+/* Prova social + link de refazer */
+.social { display: flex; align-items: center; justify-content: center; gap: 7px; font-size: 11.5px; color: rgba(18,14,10,.52); margin-bottom: 0; }
+.social b { color: rgba(18,14,10,.8); font-variant-numeric: tabular-nums; }
+.social-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(60,140,95,.9); box-shadow: 0 0 0 0 rgba(60,140,95,.5); animation: pulse 2.2s infinite; }
+.redo-link { display: inline-block; margin-top: 1.1rem; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(18,14,10,.4); text-decoration: none; border-bottom: .5px solid rgba(18,14,10,.2); padding-bottom: 2px; transition: color .2s; }
+.redo-link:hover { color: rgba(18,14,10,.7); }
+
+/* Divisor */
+.divider { display: flex; align-items: center; gap: 12px; margin: .3rem 0 1.3rem; }
+.divider::before, .divider::after { content: ''; flex: 1; height: .5px; background: rgba(18,14,10,.15); }
+.divider span { font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: rgba(18,14,10,.38); white-space: nowrap; }
+
+.vip-lead { font-size: 12.5px; line-height: 1.55; color: rgba(18,14,10,.55); text-align: center; margin-bottom: 1.1rem; }
+.vip-lead b { color: rgba(18,14,10,.78); }
+
+/* Botão secundário (VIP) */
+button.btn-secondary {
+  background: rgba(255,255,255,.4);
+  color: rgba(18,14,10,.82);
+  border: .5px solid rgba(18,14,10,.25);
+}
+button.btn-secondary:hover { background: rgba(255,255,255,.6); }
 
 /* Confirmação */
 .success { display: none; text-align: center; padding: 1rem 0; }
@@ -405,55 +451,38 @@ footer {
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(45,120,80,.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/>
           </svg>
-          <p>O contador marca o lançamento oficial, <b>para todo mundo</b>. Mas quem se cadastra aqui não espera até lá: <b>horas antes</b> do relógio zerar, você recebe no seu email um <b>link especial</b> que já libera o seu acesso ao Ferrey.</p>
+          <p>Toque em pré-registrar e pronto: o Ferrey <b>instala sozinho</b> no seu celular no dia do lançamento.</p>
         </div>
       </div>
 
       <!-- DIREITA: formulário -->
       <div class="card">
-        <!-- Recebedor: Google Apps Script (planilha "Ferrey — Cadastros Android") -->
-        <form id="form" action="https://script.google.com/macros/s/AKfycbwvS4GmXU4Xx65Lw3fIWY3m9s-H2xOLefYj-PiMBgdn9gZeMavAvi3tQgksst4dqRnz/exec" method="POST">
-          <h2 class="card-title">Entrar na lista</h2>
-          <p class="card-sub">Saia na frente do lançamento oficial</p>
+        <!-- Estado padrão: pré-registro -->
+        <div id="prereg-default">
+          <h2 class="card-title">Seja um dos primeiros</h2>
+          <p class="card-sub">Pré-registre grátis e o Ferrey instala sozinho no lançamento</p>
 
-          <div class="field">
-            <label for="instagram">@ do Instagram</label>
-            <input type="text" id="instagram" name="instagram" placeholder="@seuusuario" required>
-          </div>
-
-          <div class="field">
-            <label for="modelo">Modelo do celular</label>
-            <input type="text" id="modelo" name="modelo_do_celular" placeholder="Ex.: Galaxy S23, Moto Edge 40..." required>
-            <p class="hint">Ajuda a saber em quais aparelhos o app está rodando.</p>
-          </div>
-
-          <div class="field">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="seuemail@gmail.com" required>
-          </div>
-
-          <div class="warn">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="rgba(120,95,35,.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-              <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+          <a class="playbtn" id="preregBtn" href="https://play.google.com/store/apps/details?id=com.ferrey.app" target="_blank" rel="noopener">
+            <svg width="20" height="22" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3.9 2.6a1.5 1.5 0 0 0-.4 1v16.8a1.5 1.5 0 0 0 .4 1l.1.1 9.4-9.4v-.2L4 2.5l-.1.1z" fill="#00D2FF"/>
+              <path d="M17 15.6l-3.1-3.1v-.2l3.1-3.1.1 0 3.7 2.1c1.1.6 1.1 1.6 0 2.2L17.1 15.6z" fill="#FFD500"/>
+              <path d="M17.1 15.5 13.9 12.3 3.9 22.3a1.2 1.2 0 0 0 1.6.1l11.6-6.9" fill="#FF3D47"/>
+              <path d="M17.1 8.9 5.5 2.1a1.2 1.2 0 0 0-1.6.1l10 10 3.2-3.3z" fill="#00E676"/>
             </svg>
-            <div><b>Importante:</b> use o <b>mesmo email da sua conta do Google Play</b>. O acesso é liberado por email. Se for outro, não dá pra baixar.</div>
-          </div>
+            <span class="pl-label"><small>Pré-registrar na</small><span>Google Play</span></span>
+          </a>
 
-          <label class="check">
-            <input type="checkbox" name="aceita_contato" required>
-            <span>Quero receber por email o <b>link de acesso antecipado</b> ao Ferrey.</span>
-          </label>
+          <p class="social"><span class="social-dot"></span><b id="waitCount">6.780</b>&nbsp;pessoas esperando o Ferrey</p>
+        </div>
 
-          <button type="submit" id="btn">Garantir meu acesso</button>
-        </form>
-
-        <div class="success" id="success">
+        <!-- Estado após tocar em pré-registrar -->
+        <div class="success" id="prereg-done">
           <div class="ico">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(60,140,95,.95)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
-          <h2>Você está na lista!</h2>
-          <p>Prontinho. Horas antes do lançamento oficial, você recebe no seu email o link que libera o seu acesso antecipado ao Ferrey. Fique de olho na caixa de entrada e no spam.</p>
+          <h2>Pré-registro feito!</h2>
+          <p>Assim que o Ferrey lançar, ele instala sozinho no seu celular. É só esperar pelo grande dia.</p>
+          <a class="redo-link" href="https://play.google.com/store/apps/details?id=com.ferrey.app" target="_blank" rel="noopener">Abrir a Google Play de novo</a>
         </div>
       </div>
 
@@ -516,29 +545,73 @@ footer {
   tick();
   setInterval(tick, 1000);
 
-  /* ── ENVIO DO FORMULÁRIO ────────────────────────── */
-  const form = document.getElementById('form');
-  const btn = document.getElementById('btn');
-  const success = document.getElementById('success');
+  /* ── PRÉ-REGISTRO (lembra que a pessoa já clicou) ── */
+  const PREREG_KEY = 'ferrey_prereg';
+  const defaultBox = document.getElementById('prereg-default');
+  const doneBox = document.getElementById('prereg-done');
+  const preregBtn = document.getElementById('preregBtn');
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    btn.disabled = true;
-    btn.textContent = 'Enviando...';
-    try {
-      await fetch(form.action, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: new URLSearchParams(new FormData(form))
-      });
-      form.style.display = 'none';
-      success.style.display = 'block';
-    } catch (err) {
-      btn.disabled = false;
-      btn.textContent = 'Garantir meu acesso';
-      alert('Ops! Algo deu errado. Tente novamente em instantes.');
-    }
+  function mostrarConfirmacao() {
+    defaultBox.style.display = 'none';
+    doneBox.style.display = 'block';
+  }
+
+  try {
+    if (localStorage.getItem(PREREG_KEY)) mostrarConfirmacao();
+  } catch (e) {}
+
+  preregBtn.addEventListener('click', () => {
+    try { localStorage.setItem(PREREG_KEY, '1'); } catch (e) {}
+    setTimeout(mostrarConfirmacao, 500);
   });
+
+  /* ── CONTADOR DE PESSOAS ESPERANDO ──────────────────
+     Cresce sozinho com o tempo real (sobe ~1,4 por minuto),
+     então fica consistente entre visitas e nunca "volta pra trás".
+     Ajuste BASE (ponto de partida) e RATE (velocidade) à vontade.
+     ─────────────────────────────────────────────────── */
+  const waitEl = document.getElementById('waitCount');
+  if (waitEl) {
+    // Sobe em saltos IRREGULARES (às vezes +1, às vezes +3, às vezes pausa),
+    // determinístico pelo relógio (igual pra todo mundo, nunca volta pra trás),
+    // e calibrado pra terminar EXATAMENTE no ALVO quando o timer zerar.
+    const BASE = 6780;                 // ponto de partida
+    const ALVO = 27848;                // número exato no lançamento
+    const ADD = ALVO - BASE;
+    const INICIO = Date.parse('2026-07-03T14:52:43-03:00');
+    const FIM = LANCAMENTO.getTime();  // mesmo horário do contador regressivo
+    const BUCKET_MS = 8000;            // janela de 8 segundos
+
+    function rnd(n) { const x = Math.sin(n * 12.9898) * 43758.5453; return x - Math.floor(x); }
+    const startBucket = Math.floor(INICIO / BUCKET_MS);
+    const endBucket = Math.floor(FIM / BUCKET_MS);
+    function inc(b) {
+      const r = rnd(b - startBucket);
+      if (r < 0.88)  return 0;   // pausa
+      if (r < 0.965) return 1;
+      if (r < 0.99)  return 2;
+      if (r < 0.997) return 3;
+      return 4;                  // salto maior, raro
+    }
+
+    // soma bruta total do período (uma vez), pra normalizar o alvo
+    let RAWTOTAL = 0;
+    for (let b = startBucket + 1; b <= endBucket; b++) RAWTOTAL += inc(b);
+    if (RAWTOTAL <= 0) RAWTOTAL = 1;
+
+    let raw = 0, lastBucket = startBucket;
+    function render() {
+      const now = Date.now();
+      let nb = Math.floor(now / BUCKET_MS);
+      if (nb > endBucket) nb = endBucket;
+      for (let b = lastBucket + 1; b <= nb; b++) raw += inc(b);
+      lastBucket = nb;
+      const val = now >= FIM ? ALVO : BASE + Math.round(ADD * raw / RAWTOTAL);
+      waitEl.textContent = val.toLocaleString('pt-BR');
+    }
+    render();
+    setInterval(render, 3000);
+  }
 </script>
 
 </body>
