@@ -339,7 +339,7 @@ button:disabled { opacity: .55; cursor: not-allowed; }
 .play-note { font-size: 11px; color: rgba(18,14,10,.42); text-align: center; margin-bottom: 0; }
 
 /* Prova social + link de refazer */
-.social { display: flex; align-items: center; justify-content: center; gap: 7px; font-size: 11.5px; color: rgba(18,14,10,.52); margin-bottom: 0; }
+.social { display: flex; align-items: center; justify-content: center; gap: 7px; font-size: 11.5px; color: rgba(18,14,10,.52); margin: 1.4rem 0 0; }
 .social b { color: rgba(18,14,10,.8); font-variant-numeric: tabular-nums; }
 .social-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(60,140,95,.9); box-shadow: 0 0 0 0 rgba(60,140,95,.5); animation: pulse 2.2s infinite; }
 .redo-link { display: inline-block; margin-top: 1.1rem; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(18,14,10,.4); text-decoration: none; border-bottom: .5px solid rgba(18,14,10,.2); padding-bottom: 2px; transition: color .2s; }
@@ -449,38 +449,44 @@ footer {
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(45,120,80,.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/>
           </svg>
-          <p>Toque em pré-registrar e pronto: o Ferrey <b>instala sozinho</b> no seu celular no dia do lançamento.</p>
+          <p>O contador marca o lançamento oficial, para todo mundo. Quem se cadastra aqui entra na lista e é <b>avisado por email antes de todo mundo</b>, assim que o Ferrey for liberado no Android.</p>
         </div>
       </div>
 
       <!-- DIREITA: formulário -->
       <div class="card">
-        <!-- Estado padrão: pré-registro -->
-        <div id="prereg-default">
-          <h2 class="card-title">Seja um dos primeiros</h2>
-          <p class="card-sub">Pré-registre grátis e o Ferrey instala sozinho no lançamento</p>
+        <!-- Formulário (@ + email -> planilha "Ferrey — Cadastros Android") -->
+        <div id="signup-box">
+          <h2 class="card-title">Entrar na lista</h2>
+          <p class="card-sub">Garanta seu acesso antes do lançamento</p>
 
-          <a class="playbtn" id="preregBtn" href="https://play.google.com/store/apps/details?id=com.ferrey.app" target="_blank" rel="noopener">
-            <svg width="20" height="22" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M3.9 2.6a1.5 1.5 0 0 0-.4 1v16.8a1.5 1.5 0 0 0 .4 1l.1.1 9.4-9.4v-.2L4 2.5l-.1.1z" fill="#00D2FF"/>
-              <path d="M17 15.6l-3.1-3.1v-.2l3.1-3.1.1 0 3.7 2.1c1.1.6 1.1 1.6 0 2.2L17.1 15.6z" fill="#FFD500"/>
-              <path d="M17.1 15.5 13.9 12.3 3.9 22.3a1.2 1.2 0 0 0 1.6.1l11.6-6.9" fill="#FF3D47"/>
-              <path d="M17.1 8.9 5.5 2.1a1.2 1.2 0 0 0-1.6.1l10 10 3.2-3.3z" fill="#00E676"/>
-            </svg>
-            <span class="pl-label"><small>Pré-registrar na</small><span>Google Play</span></span>
-          </a>
+          <form id="form" action="https://script.google.com/macros/s/AKfycbwvS4GmXU4Xx65Lw3fIWY3m9s-H2xOLefYj-PiMBgdn9gZeMavAvi3tQgksst4dqRnz/exec" method="POST">
+            <div class="field">
+              <label for="instagram">@ do Instagram</label>
+              <input type="text" id="instagram" name="instagram" placeholder="@seuusuario" required>
+            </div>
+            <div class="field">
+              <label for="modelo">Modelo do celular</label>
+              <input type="text" id="modelo" name="modelo_do_celular" placeholder="Ex.: Galaxy S23, Moto Edge 40..." required>
+              <p class="hint">Ajuda a saber em quais aparelhos o app está rodando.</p>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="seuemail@gmail.com" required>
+            </div>
+            <button type="submit" id="btn">Garantir meu acesso</button>
+          </form>
 
           <p class="social"><span class="social-dot"></span><b id="waitCount">6.780</b>&nbsp;pessoas esperando o Ferrey</p>
         </div>
 
-        <!-- Estado após tocar em pré-registrar -->
-        <div class="success" id="prereg-done">
+        <!-- Estado após enviar -->
+        <div class="success" id="success">
           <div class="ico">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(60,140,95,.95)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
-          <h2>Pré-registro feito!</h2>
-          <p>Assim que o Ferrey lançar, ele instala sozinho no seu celular. É só esperar pelo grande dia.</p>
-          <a class="redo-link" href="https://play.google.com/store/apps/details?id=com.ferrey.app" target="_blank" rel="noopener">Abrir a Google Play de novo</a>
+          <h2>Você está na lista!</h2>
+          <p>Prontinho. Assim que o Ferrey for liberado no Android, você recebe um email, antes do lançamento oficial. Fique de olho na caixa de entrada e no spam.</p>
         </div>
       </div>
 
@@ -543,24 +549,29 @@ footer {
   tick();
   setInterval(tick, 1000);
 
-  /* ── PRÉ-REGISTRO (lembra que a pessoa já clicou) ── */
-  const PREREG_KEY = 'ferrey_prereg';
-  const defaultBox = document.getElementById('prereg-default');
-  const doneBox = document.getElementById('prereg-done');
-  const preregBtn = document.getElementById('preregBtn');
+  /* ── ENVIO DO FORMULÁRIO (@ + email -> planilha) ── */
+  const form = document.getElementById('form');
+  const btn = document.getElementById('btn');
+  const signupBox = document.getElementById('signup-box');
+  const success = document.getElementById('success');
 
-  function mostrarConfirmacao() {
-    defaultBox.style.display = 'none';
-    doneBox.style.display = 'block';
-  }
-
-  try {
-    if (localStorage.getItem(PREREG_KEY)) mostrarConfirmacao();
-  } catch (e) {}
-
-  preregBtn.addEventListener('click', () => {
-    try { localStorage.setItem(PREREG_KEY, '1'); } catch (e) {}
-    setTimeout(mostrarConfirmacao, 500);
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+    try {
+      await fetch(form.action, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: new URLSearchParams(new FormData(form))
+      });
+      signupBox.style.display = 'none';
+      success.style.display = 'block';
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = 'Garantir meu acesso';
+      alert('Ops! Algo deu errado. Tente novamente em instantes.');
+    }
   });
 
   /* ── CONTADOR DE PESSOAS ESPERANDO ──────────────────
