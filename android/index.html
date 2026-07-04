@@ -468,7 +468,6 @@ footer {
             <div class="field">
               <label for="modelo">Modelo do celular</label>
               <input type="text" id="modelo" name="modelo_do_celular" placeholder="Ex.: Galaxy S23, Moto Edge 40..." required>
-              <p class="hint">Ajuda a saber em quais aparelhos o app está rodando.</p>
             </div>
             <div class="field">
               <label for="email">Email</label>
@@ -555,23 +554,22 @@ footer {
   const signupBox = document.getElementById('signup-box');
   const success = document.getElementById('success');
 
-  form.addEventListener('submit', async (e) => {
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
     btn.disabled = true;
     btn.textContent = 'Enviando...';
-    try {
-      await fetch(form.action, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: new URLSearchParams(new FormData(form))
-      });
+    // dispara o cadastro em segundo plano (não trava esperando a resposta do Google)
+    fetch(form.action, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: new URLSearchParams(new FormData(form)),
+      keepalive: true
+    }).catch(function () {});
+    // mostra a confirmação quase na hora
+    setTimeout(function () {
       signupBox.style.display = 'none';
       success.style.display = 'block';
-    } catch (err) {
-      btn.disabled = false;
-      btn.textContent = 'Garantir meu acesso';
-      alert('Ops! Algo deu errado. Tente novamente em instantes.');
-    }
+    }, 500);
   });
 
   /* ── CONTADOR DE PESSOAS ESPERANDO ──────────────────
