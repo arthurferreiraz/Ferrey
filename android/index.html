@@ -400,18 +400,8 @@ footer {
 }
 .footer-link:hover { color: rgba(18,14,10,.6); }
 
-/* ── DESKTOP: DUAS COLUNAS ────────────────────────── */
-@media (min-width: 880px) {
-  .layout {
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-  }
-  .pitch { text-align: left; }
-  .pitch-icon { margin-left: 0; margin-right: auto; }
-  .countdown { justify-content: flex-start; }
-  .headstart { margin-left: 0; }
-  .card { margin-right: 0; }
-}
+/* Layout centralizado (só a contagem regressiva) */
+.layout { max-width: 620px; }
 
 </style>
 </head>
@@ -445,48 +435,6 @@ footer {
         </div>
         <p class="cd-caption" id="cd-caption">para o <b>lançamento oficial</b></p>
 
-        <div class="headstart">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(45,120,80,.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/>
-          </svg>
-          <p>O contador marca o lançamento oficial, para todo mundo. Quem se cadastra aqui entra na lista e é <b>avisado por email antes de todo mundo</b>, assim que o Ferrey for liberado no Android.</p>
-        </div>
-      </div>
-
-      <!-- DIREITA: formulário -->
-      <div class="card">
-        <!-- Formulário (@ + email -> planilha "Ferrey — Cadastros Android") -->
-        <div id="signup-box">
-          <h2 class="card-title">Entrar na lista</h2>
-          <p class="card-sub">Garanta seu acesso antes do lançamento</p>
-
-          <form id="form" action="https://script.google.com/macros/s/AKfycbwvS4GmXU4Xx65Lw3fIWY3m9s-H2xOLefYj-PiMBgdn9gZeMavAvi3tQgksst4dqRnz/exec" method="POST">
-            <div class="field">
-              <label for="instagram">@ do Instagram</label>
-              <input type="text" id="instagram" name="instagram" placeholder="@seuusuario" required>
-            </div>
-            <div class="field">
-              <label for="modelo">Modelo do celular</label>
-              <input type="text" id="modelo" name="modelo_do_celular" placeholder="Ex.: Galaxy S23, Moto Edge 40..." required>
-            </div>
-            <div class="field">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="seuemail@gmail.com" required>
-            </div>
-            <button type="submit" id="btn">Garantir meu acesso</button>
-          </form>
-
-          <p class="social"><span class="social-dot"></span><b id="waitCount">6.780</b>&nbsp;pessoas esperando o Ferrey</p>
-        </div>
-
-        <!-- Estado após enviar -->
-        <div class="success" id="success">
-          <div class="ico">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(60,140,95,.95)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <h2>Você está na lista!</h2>
-          <p>Prontinho. Assim que o Ferrey for liberado no Android, você recebe um email, antes do lançamento oficial. Fique de olho na caixa de entrada e no spam.</p>
-        </div>
       </div>
 
     </div>
@@ -547,30 +495,6 @@ footer {
 
   tick();
   setInterval(tick, 1000);
-
-  /* ── ENVIO DO FORMULÁRIO (@ + email -> planilha) ── */
-  const form = document.getElementById('form');
-  const btn = document.getElementById('btn');
-  const signupBox = document.getElementById('signup-box');
-  const success = document.getElementById('success');
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    btn.disabled = true;
-    btn.textContent = 'Enviando...';
-    // dispara o cadastro em segundo plano (não trava esperando a resposta do Google)
-    fetch(form.action, {
-      method: 'POST',
-      mode: 'no-cors',
-      body: new URLSearchParams(new FormData(form)),
-      keepalive: true
-    }).catch(function () {});
-    // mostra a confirmação quase na hora
-    setTimeout(function () {
-      signupBox.style.display = 'none';
-      success.style.display = 'block';
-    }, 500);
-  });
 
   /* ── CONTADOR DE PESSOAS ESPERANDO ──────────────────
      Cresce sozinho com o tempo real (sobe ~1,4 por minuto),
