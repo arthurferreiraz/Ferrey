@@ -3,28 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Ferrey para Android — Lançamento oficial</title>
-<meta name="description" content="O Ferrey está chegando ao Android. Cadastre-se e saia na frente: acesso antes de todo mundo e um email assim que o app for liberado.">
+<title>Ferrey — Já disponível no Android</title>
+<meta name="description" content="O Ferrey chegou ao Android. Baixe agora na Google Play.">
 
-<!-- Open Graph (link bonito ao compartilhar no TikTok / Instagram) -->
-<meta property="og:title" content="Ferrey chega ao Android. Saia na frente.">
-<meta property="og:description" content="Cadastre-se e receba o acesso antes de todo mundo, com um email assim que o app for liberado.">
+<meta property="og:title" content="Ferrey chegou ao Android!">
+<meta property="og:description" content="Já disponível na Google Play. Baixe agora.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.ferrey.com.br/android/">
+<meta property="og:url" content="https://www.ferrey.com.br/android/disponivel/">
 <meta property="og:image" content="https://www.ferrey.com.br/logo.png">
 
-<!-- Fonte de destaque (lookalike da Druk Text Wide) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62.5..125,100..900&display=swap" rel="stylesheet">
 
 <style>
-
-@font-face {
-  font-family: 'Druk Text Wide Trial';
-  src: local('Druk Text Wide Trial Bold'), local('DrukTextWide-Bold');
-  font-weight: 700;
-}
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -85,7 +77,7 @@ nav {
 }
 .nav-back:hover { color: rgba(18, 14, 10, .86); }
 
-/* ── MAIN LAYOUT ──────────────────────────────────── */
+/* ── MAIN ─────────────────────────────────────────── */
 main {
   flex: 1 0 auto;
   display: flex;
@@ -94,31 +86,24 @@ main {
   padding: 5.5rem 1.5rem 2.5rem;
 }
 
-.layout {
+.pitch {
   width: 100%;
-  max-width: 1000px;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.75rem;
-  align-items: center;
+  max-width: 480px;
+  text-align: center;
   animation: rise .7s ease .05s both;
 }
-
 @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 
-/* ── LEFT: PITCH ──────────────────────────────────── */
-.pitch { text-align: center; }
-
 .pitch-icon {
-  width: 66px; height: 66px;
-  border-radius: 18px;
+  width: 74px; height: 74px;
+  border-radius: 19px;
   background: rgba(255, 255, 255, .78);
   border: .5px solid rgba(255, 255, 255, .6);
   display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 1.2rem;
+  margin: 0 auto 1.4rem;
   box-shadow: 0 4px 28px rgba(0,0,0,.07);
 }
-.pitch-icon img { width: 40px; height: 40px; object-fit: contain; }
+.pitch-icon img { width: 46px; height: 46px; object-fit: contain; }
 
 .eyebrow {
   display: inline-flex;
@@ -128,17 +113,17 @@ main {
   letter-spacing: .24em;
   text-transform: uppercase;
   color: rgba(18, 14, 10, .44);
-  margin-bottom: .9rem;
+  margin-bottom: 1rem;
 }
 .eyebrow .dot {
   width: 7px; height: 7px; border-radius: 50%;
   background: rgba(60, 140, 95, .9);
   box-shadow: 0 0 0 0 rgba(60,140,95,.5);
-  animation: pulse 2.2s infinite;
+  animation: pulse 2s infinite;
 }
 @keyframes pulse {
-  0%   { box-shadow: 0 0 0 0 rgba(60,140,95,.45); }
-  70%  { box-shadow: 0 0 0 7px rgba(60,140,95,0); }
+  0%   { box-shadow: 0 0 0 0 rgba(60,140,95,.5); }
+  70%  { box-shadow: 0 0 0 8px rgba(60,140,95,0); }
   100% { box-shadow: 0 0 0 0 rgba(60,140,95,0); }
 }
 
@@ -146,235 +131,64 @@ main {
   font-family: 'Archivo', 'Arial Black', Arial, sans-serif;
   font-weight: 900;
   font-stretch: 125%;
-  font-size: clamp(1.4rem, 7vw, 2.9rem);
-  white-space: nowrap;
+  font-size: clamp(2.6rem, 13vw, 4.5rem);
   text-transform: uppercase;
   letter-spacing: -.01em;
-  line-height: .92;
+  line-height: .9;
   color: rgba(18, 14, 10, .88);
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
 }
 
-/* ── COUNTDOWN ────────────────────────────────────── */
-.countdown {
-  display: flex;
-  gap: .55rem;
-  justify-content: center;
-  margin-bottom: .7rem;
-}
-.cd-box {
-  background: rgba(255, 253, 250, .3);
-  backdrop-filter: blur(20px) saturate(1.4);
-  -webkit-backdrop-filter: blur(20px) saturate(1.4);
-  border: .5px solid rgba(255, 255, 255, .55);
-  border-radius: 15px;
-  padding: .7rem .3rem .55rem;
-  min-width: 66px;
-  text-align: center;
-  box-shadow: 0 6px 24px rgba(30,25,18,.08);
-}
-.cd-num {
-  font-family: 'Archivo', 'Arial Black', Arial, sans-serif;
-  font-weight: 900;
-  font-stretch: 125%;
-  font-size: 1.75rem;
-  line-height: 1;
-  color: rgba(18, 14, 10, .88);
-  font-variant-numeric: tabular-nums;
-}
-.cd-label {
-  font-size: 8px;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: rgba(18, 14, 10, .42);
-  margin-top: .4rem;
-}
-.cd-caption {
-  font-size: 9.5px;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: rgba(18, 14, 10, .4);
-  margin-bottom: 1.4rem;
-}
-.cd-caption b { color: rgba(18, 14, 10, .62); }
-
-/* Destaque: deixa claro que a lista recebe ANTES do relógio zerar */
-.headstart {
-  background: rgba(60, 140, 95, .1);
-  border: .5px solid rgba(60, 140, 95, .3);
-  border-radius: 16px;
-  padding: .9rem 1.05rem;
-  max-width: 380px;
-  margin: 0 auto;
-  text-align: left;
-  display: flex;
-  gap: 11px;
-  align-items: flex-start;
-}
-.headstart svg { flex-shrink: 0; margin-top: 1px; }
-.headstart p { font-size: 12.5px; line-height: 1.55; color: rgba(20, 45, 32, .8); }
-.headstart b { color: rgba(15, 60, 40, .95); }
-
-/* ── RIGHT: FORM CARD ─────────────────────────────── */
-.card {
-  width: 100%;
-  max-width: 440px;
-  margin: 0 auto;
-  background: rgba(255, 253, 250, .28);
-  backdrop-filter: blur(32px) saturate(1.5) brightness(1.05);
-  -webkit-backdrop-filter: blur(32px) saturate(1.5) brightness(1.05);
-  border: .5px solid rgba(255, 255, 255, .55);
-  border-radius: 26px;
-  padding: 2rem 1.9rem;
-  box-shadow: 0 12px 48px rgba(30,25,18,.1);
+.pitch-desc {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: rgba(18, 14, 10, .55);
+  max-width: 340px;
+  margin: 0 auto 1.9rem;
 }
 
-.card-title {
-  font-family: 'Archivo', 'Arial Black', Arial, sans-serif;
-  font-weight: 900;
-  font-stretch: 125%;
-  font-size: 1.3rem;
-  text-transform: uppercase;
-  color: rgba(18, 14, 10, .86);
-  margin-bottom: .45rem;
-  text-align: center;
-}
-.card-sub { font-size: 12px; color: rgba(18, 14, 10, .42); text-align: center; line-height: 1.5; margin-bottom: 1.1rem; }
-
-.field { margin-bottom: 1.2rem; }
-label {
-  display: block;
-  font-size: 9.5px; letter-spacing: .16em; text-transform: uppercase;
-  color: rgba(18, 14, 10, .5); margin-bottom: .55rem;
-}
-.hint { font-size: 11px; color: rgba(18, 14, 10, .4); margin-top: .45rem; line-height: 1.45; }
-
-input[type="text"], input[type="email"] {
-  width: 100%;
-  background: rgba(255, 255, 255, .42);
-  border: .5px solid rgba(255, 255, 255, .7);
-  border-radius: 12px;
-  color: rgba(18, 14, 10, .9);
-  font-size: 16px;
-  font-family: Arial, sans-serif;
-  padding: .82rem .95rem;
-  transition: border-color .15s, background .15s, box-shadow .15s;
-}
-input::placeholder { color: rgba(18, 14, 10, .3); }
-input:focus {
-  outline: none;
-  background: rgba(255, 255, 255, .6);
-  border-color: rgba(18, 14, 10, .5);
-  box-shadow: 0 0 0 3px rgba(18, 14, 10, .06);
-}
-
-/* Aviso do email do Google Play */
-.warn {
-  display: flex;
-  gap: 10px;
-  background: rgba(255, 250, 235, .5);
-  border: .5px solid rgba(170, 140, 80, .38);
-  border-radius: 13px;
-  padding: .85rem .95rem;
-  margin: .5rem 0 1.4rem;
-  font-size: 11.5px;
-  line-height: 1.5;
-  color: rgba(70, 55, 25, .82);
-}
-.warn svg { flex-shrink: 0; margin-top: 1px; }
-.warn b { color: rgba(50, 38, 15, .95); }
-
-.check {
-  display: flex; gap: 9px; align-items: flex-start;
-  margin-bottom: 1.5rem;
-  font-size: 11.5px; line-height: 1.5;
-  color: rgba(18, 14, 10, .55); cursor: pointer;
-}
-.check input {
-  width: 16px; height: 16px; margin-top: 1px;
-  accent-color: rgba(18, 14, 10, .82); flex-shrink: 0; cursor: pointer;
-}
-.check b { color: rgba(18, 14, 10, .78); }
-
-button {
-  width: 100%;
-  background: rgba(18, 14, 10, .88);
-  color: rgba(255, 252, 248, .95);
-  font-family: 'Archivo', 'Arial Black', Arial, sans-serif;
-  font-weight: 900;
-  font-stretch: 125%;
-  font-size: 12px; letter-spacing: .06em; text-transform: uppercase;
-  border: .5px solid rgba(255,255,255,.1);
-  border-radius: 100px;
-  padding: .95rem;
-  cursor: pointer;
-  transition: transform .15s, background .2s;
-}
-button:hover { background: rgba(18,14,10,.96); transform: scale(1.01); }
-button:active { transform: scale(.98); }
-button:disabled { opacity: .55; cursor: not-allowed; }
-
-/* Botão Google Play (primário) */
+/* ── BOTÃO GOOGLE PLAY ────────────────────────────── */
 .playbtn {
-  display: flex; align-items: center; justify-content: center; gap: 11px;
-  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
   background: rgba(18, 14, 10, .9);
   color: rgba(255, 252, 248, .96);
   text-decoration: none;
   border-radius: 100px;
-  padding: 1.05rem 1.2rem;
+  padding: 1.05rem 2rem;
   border: .5px solid rgba(255,255,255,.1);
   transition: transform .15s, background .2s;
-  margin-bottom: .8rem;
 }
-.playbtn:hover { background: rgba(18,14,10,.98); transform: scale(1.01); }
+.playbtn:hover { background: rgba(18,14,10,.98); transform: scale(1.02); }
 .playbtn:active { transform: scale(.98); }
 .playbtn .pl-label { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.2; }
 .playbtn .pl-label small { font-size: 9px; letter-spacing: .12em; text-transform: uppercase; opacity: .6; }
 .playbtn .pl-label > span {
   font-family: 'Archivo', 'Arial Black', Arial, sans-serif;
   font-weight: 900; font-stretch: 125%;
-  font-size: 12.5px; letter-spacing: .04em; text-transform: uppercase;
+  font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
 }
-.play-note { font-size: 11px; color: rgba(18,14,10,.42); text-align: center; margin-bottom: 0; }
 
-/* Prova social + link de refazer */
-.social { display: flex; align-items: center; justify-content: center; gap: 7px; font-size: 11.5px; color: rgba(18,14,10,.52); margin: 1.4rem 0 0; }
-.social b { color: rgba(18,14,10,.8); font-variant-numeric: tabular-nums; }
-.social-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(60,140,95,.9); box-shadow: 0 0 0 0 rgba(60,140,95,.5); animation: pulse 2.2s infinite; }
-.redo-link { display: inline-block; margin-top: 1.1rem; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(18,14,10,.4); text-decoration: none; border-bottom: .5px solid rgba(18,14,10,.2); padding-bottom: 2px; transition: color .2s; }
-.redo-link:hover { color: rgba(18,14,10,.7); }
-
-/* Divisor */
-.divider { display: flex; align-items: center; gap: 12px; margin: .3rem 0 1.3rem; }
-.divider::before, .divider::after { content: ''; flex: 1; height: .5px; background: rgba(18,14,10,.15); }
-.divider span { font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: rgba(18,14,10,.38); white-space: nowrap; }
-
-.vip-lead { font-size: 12.5px; line-height: 1.55; color: rgba(18,14,10,.55); text-align: center; margin-bottom: 1.1rem; }
-.vip-lead b { color: rgba(18,14,10,.78); }
-
-/* Botão secundário (VIP) */
-button.btn-secondary {
-  background: rgba(255,255,255,.4);
-  color: rgba(18,14,10,.82);
-  border: .5px solid rgba(18,14,10,.25);
+/* ── AVISO DE LIBERAÇÃO GRADUAL ───────────────────── */
+.note {
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+  text-align: left;
+  background: rgba(255, 253, 250, .3);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border: .5px solid rgba(255, 255, 255, .55);
+  border-radius: 16px;
+  padding: .95rem 1.1rem;
+  max-width: 400px;
+  margin: 2rem auto 0;
 }
-button.btn-secondary:hover { background: rgba(255,255,255,.6); }
-
-/* Confirmação */
-.success { display: none; text-align: center; padding: 1rem 0; }
-.success .ico {
-  width: 54px; height: 54px; margin: 0 auto 1rem;
-  border-radius: 50%; background: rgba(60, 140, 95, .14);
-  display: flex; align-items: center; justify-content: center;
-}
-.success h2 {
-  font-family: 'Archivo', 'Arial Black', Arial, sans-serif;
-  font-weight: 900;
-  font-stretch: 125%; font-size: 1.25rem; text-transform: uppercase;
-  color: rgba(18, 14, 10, .86); margin-bottom: .6rem;
-}
-.success p { font-size: 13px; line-height: 1.65; color: rgba(18, 14, 10, .52); max-width: 320px; margin: 0 auto; text-align: justify; }
+.note svg { flex-shrink: 0; margin-top: 1px; }
+.note p { font-size: 12.5px; line-height: 1.55; color: rgba(18, 14, 10, .58); }
+.note b { color: rgba(18, 14, 10, .8); }
 
 /* ── FOOTER ───────────────────────────────────────── */
 footer {
@@ -388,8 +202,7 @@ footer {
 }
 .footer-logo {
   font-family: 'Archivo', 'Arial Black', Arial, sans-serif;
-  font-weight: 900;
-  font-stretch: 125%; font-size: .8rem; letter-spacing: .06em;
+  font-weight: 900; font-stretch: 125%; font-size: .8rem; letter-spacing: .06em;
   text-transform: uppercase; color: rgba(18, 14, 10, .36);
 }
 .footer-right { display: flex; align-items: center; gap: 1.5rem; }
@@ -400,9 +213,6 @@ footer {
 }
 .footer-link:hover { color: rgba(18,14,10,.6); }
 
-/* Layout centralizado (só a contagem regressiva) */
-.layout { max-width: 620px; }
-
 </style>
 </head>
 <body>
@@ -411,32 +221,34 @@ footer {
 
 <div class="page">
 
-  <!-- NAV -->
   <nav>
-    <a href="/" class="nav-logo"><img src="../logo.png" alt="Ferrey"></a>
-    <a href="/" class="nav-back">← Voltar</a>
+    <a href="/" class="nav-logo"><img src="/logo.png" alt="Ferrey"></a>
+    <a href="/" class="nav-back">← Início</a>
   </nav>
 
-  <!-- MAIN -->
   <main>
-    <div class="layout">
+    <div class="pitch">
+      <div class="pitch-icon"><img src="/logo.png" alt="Ferrey"></div>
+      <p class="eyebrow"><span class="dot"></span>Já disponível no Android</p>
+      <h1 class="pitch-title">Chegou</h1>
+      <p class="pitch-desc">O Ferrey chegou ao Android. Baixe agora, direto na Google Play.</p>
 
-      <!-- ESQUERDA: contagem regressiva -->
-      <div class="pitch">
-        <div class="pitch-icon"><img src="../logo.png" alt="Ferrey"></div>
-        <p class="eyebrow"><span class="dot"></span>Lançamento oficial no Android</p>
-        <h1 class="pitch-title">Falta Pouco</h1>
+      <a class="playbtn" href="https://play.google.com/store/apps/details?id=com.ferrey.app" target="_blank" rel="noopener">
+        <svg width="22" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3.9 2.6a1.5 1.5 0 0 0-.4 1v16.8a1.5 1.5 0 0 0 .4 1l.1.1 9.4-9.4v-.2L4 2.5l-.1.1z" fill="#00D2FF"/>
+          <path d="M17 15.6l-3.1-3.1v-.2l3.1-3.1.1 0 3.7 2.1c1.1.6 1.1 1.6 0 2.2L17.1 15.6z" fill="#FFD500"/>
+          <path d="M17.1 15.5 13.9 12.3 3.9 22.3a1.2 1.2 0 0 0 1.6.1l11.6-6.9" fill="#FF3D47"/>
+          <path d="M17.1 8.9 5.5 2.1a1.2 1.2 0 0 0-1.6.1l10 10 3.2-3.3z" fill="#00E676"/>
+        </svg>
+        <span class="pl-label"><small>Baixar na</small><span>Google Play</span></span>
+      </a>
 
-        <div class="countdown" id="countdown">
-          <div class="cd-box"><div class="cd-num" id="cd-days">00</div><div class="cd-label">Dias</div></div>
-          <div class="cd-box"><div class="cd-num" id="cd-hours">00</div><div class="cd-label">Horas</div></div>
-          <div class="cd-box"><div class="cd-num" id="cd-mins">00</div><div class="cd-label">Min</div></div>
-          <div class="cd-box"><div class="cd-num" id="cd-secs">00</div><div class="cd-label">Seg</div></div>
-        </div>
-        <p class="cd-caption" id="cd-caption">para o <b>lançamento oficial</b></p>
-
+      <div class="note">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(90,75,45,.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"/><path d="M12 8v4l2.5 1.5"/>
+        </svg>
+        <p>A Google Play libera o app <b>aos poucos</b>, então pode ser que ele ainda não apareça na busca. É normal. Toque no botão acima, ou aguarde alguns minutos e atualize a página.</p>
       </div>
-
     </div>
   </main>
 
@@ -449,101 +261,6 @@ footer {
   </footer>
 
 </div>
-
-<script>
-  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-  window.scrollTo(0, 0);
-
-  /* ============================================================
-     DATA E HORA DO LANÇAMENTO OFICIAL
-     Formato: 'AAAA-MM-DDTHH:MM:SS-03:00'  (-03:00 = horário de Brasília)
-     Ex.: 20 de agosto de 2026, 20h  ->  '2026-08-20T20:00:00-03:00'
-     ============================================================ */
-  const LANCAMENTO = new Date('2026-07-09T12:00:00-03:00');
-
-  const elDays = document.getElementById('cd-days');
-  const elHours = document.getElementById('cd-hours');
-  const elMins = document.getElementById('cd-mins');
-  const elSecs = document.getElementById('cd-secs');
-  const elCaption = document.getElementById('cd-caption');
-
-  function pad(n) { return String(n).padStart(2, '0'); }
-
-  function tick() {
-    const agora = new Date();
-    let diff = Math.floor((LANCAMENTO - agora) / 1000);
-
-    if (diff <= 0) {
-      elDays.textContent = '00';
-      elHours.textContent = '00';
-      elMins.textContent = '00';
-      elSecs.textContent = '00';
-      elCaption.innerHTML = 'O <b>Ferrey</b> já está no ar';
-      return;
-    }
-
-    const days = Math.floor(diff / 86400); diff -= days * 86400;
-    const hours = Math.floor(diff / 3600); diff -= hours * 3600;
-    const mins = Math.floor(diff / 60); diff -= mins * 60;
-    const secs = diff;
-
-    elDays.textContent = pad(days);
-    elHours.textContent = pad(hours);
-    elMins.textContent = pad(mins);
-    elSecs.textContent = pad(secs);
-  }
-
-  tick();
-  setInterval(tick, 1000);
-
-  /* ── CONTADOR DE PESSOAS ESPERANDO ──────────────────
-     Cresce sozinho com o tempo real (sobe ~1,4 por minuto),
-     então fica consistente entre visitas e nunca "volta pra trás".
-     Ajuste BASE (ponto de partida) e RATE (velocidade) à vontade.
-     ─────────────────────────────────────────────────── */
-  const waitEl = document.getElementById('waitCount');
-  if (waitEl) {
-    // Sobe em saltos IRREGULARES (às vezes +1, às vezes +3, às vezes pausa),
-    // determinístico pelo relógio (igual pra todo mundo, nunca volta pra trás),
-    // e calibrado pra terminar EXATAMENTE no ALVO quando o timer zerar.
-    const BASE = 6780;                 // ponto de partida
-    const ALVO = 27848;                // número exato no lançamento
-    const ADD = ALVO - BASE;
-    const INICIO = Date.parse('2026-07-03T14:52:43-03:00');
-    const FIM = LANCAMENTO.getTime();  // mesmo horário do contador regressivo
-    const BUCKET_MS = 8000;            // janela de 8 segundos
-
-    function rnd(n) { const x = Math.sin(n * 12.9898) * 43758.5453; return x - Math.floor(x); }
-    const startBucket = Math.floor(INICIO / BUCKET_MS);
-    const endBucket = Math.floor(FIM / BUCKET_MS);
-    function inc(b) {
-      const r = rnd(b - startBucket);
-      if (r < 0.88)  return 0;   // pausa
-      if (r < 0.965) return 1;
-      if (r < 0.99)  return 2;
-      if (r < 0.997) return 3;
-      return 4;                  // salto maior, raro
-    }
-
-    // soma bruta total do período (uma vez), pra normalizar o alvo
-    let RAWTOTAL = 0;
-    for (let b = startBucket + 1; b <= endBucket; b++) RAWTOTAL += inc(b);
-    if (RAWTOTAL <= 0) RAWTOTAL = 1;
-
-    let raw = 0, lastBucket = startBucket;
-    function render() {
-      const now = Date.now();
-      let nb = Math.floor(now / BUCKET_MS);
-      if (nb > endBucket) nb = endBucket;
-      for (let b = lastBucket + 1; b <= nb; b++) raw += inc(b);
-      lastBucket = nb;
-      const val = now >= FIM ? ALVO : BASE + Math.round(ADD * raw / RAWTOTAL);
-      waitEl.textContent = val.toLocaleString('pt-BR');
-    }
-    render();
-    setInterval(render, 3000);
-  }
-</script>
 
 </body>
 </html>
